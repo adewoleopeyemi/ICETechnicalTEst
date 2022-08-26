@@ -114,12 +114,12 @@ class DetailsFragment
 
     private fun subscribeObservers(view: View){
         binding!!.next.root.setOnClickListener {
-            if (binding!!.email.text.isNotEmpty() && binding!!.lastName.text.isNotEmpty() && binding!!.email.text.isNotEmpty()){
+            if (binding!!.email.text.isNotEmpty() && binding!!.lastName.text.isNotEmpty() && binding!!.email.text.isNotEmpty() && binding!!.phone.text.isNotEmpty()){
                 val bundle = Bundle()
                 bundle.putString("firstName", binding!!.firstName.text.toString())
                 bundle.putString("lastName", binding!!.lastName.text.toString())
                 bundle.putString("email", binding!!.email.text.toString())
-                bundle.putString("phoneNumber", requireArguments()!!.getString("phoneNumber"))
+                bundle.putString("phoneNumber", binding!!.phone.text.toString())
                 ICENavigator.navigate(it, R.id.action_detailsFragment_to_credentialFragment, bundle)
             }
             else{

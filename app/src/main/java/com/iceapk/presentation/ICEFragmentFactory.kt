@@ -1,6 +1,7 @@
 package com.iceapk.presentation
 
 import androidx.fragment.app.FragmentFactory
+import com.iceapk.presentation.Onboarding.BoardFragment
 import com.iceapk.presentation.login.LoginFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
@@ -15,6 +16,9 @@ constructor(
 
     override fun instantiate(classLoader: ClassLoader, className: String) =
         when(className){
+            BoardFragment::class.java.name -> {
+                BoardFragment()
+            }
             LoginFragment::class.java.name -> {
                 LoginFragment()
             }

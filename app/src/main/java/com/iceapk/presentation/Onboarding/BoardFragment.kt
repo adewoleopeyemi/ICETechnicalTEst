@@ -27,7 +27,7 @@ constructor(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        uiController.hideBottomNav(true)
+       // uiController.hideBottomNav(true)
     }
 
     override fun onCreateView(
@@ -40,18 +40,20 @@ constructor(
         return view
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding!!.createAccount.setOnClickListener {
-            ICENavigator.navigate(view, R.id.action_boardFragment_to_detailsFragment, null)
+            navigate(view, R.id.action_boardFragment_to_detailsFragment, null)
         }
         binding!!.loginBtn.setOnClickListener {
-            ICENavigator.navigate(it, R.id.action_boardFragment_to_loginFragment2)
+            navigate(it, R.id.action_boardFragment_to_loginFragment2)
         }
     }
 
     override fun onResume() {
         uiController.statusBarColor(R.color.purple, true)
+        uiController.hideBottomNav(true)
         super.onResume()
     }
 

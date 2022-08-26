@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentLoginBinding
 import com.iceapk.presentation.data.dto.LoginDTO
+import com.iceapk.presentation.data.models.Login
 import com.iceapk.utils.Constants
 import com.iceapk.utils.ICENavigator
 import com.iceapk.utils.UIController
@@ -117,7 +118,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding!!.next.setOnClickListener {
             if (binding!!.password.text.text.toString().isNotEmpty() && binding!!.phone.text.isNotEmpty()){
                 lifecycleScope.launch {
-                    viewModel.intent.send(LoginIntent.Login(LoginDTO("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
+                    viewModel.intent.send(LoginIntent.Login(Login("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
                 }
             }
             else{

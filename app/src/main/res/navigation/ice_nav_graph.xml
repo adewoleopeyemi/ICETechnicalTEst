@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ice_nav_graph"
-    app:startDestination="@id/login_nav">
+    app:startDestination="@id/boardFragment">
 
     <fragment
         android:id="@+id/boardFragment"
         android:name="com.iceapk.presentation.Onboarding.BoardFragment"
-        android:label="fragment_board_four"
+        android:label="fragment_board"
         tools:layout="@layout/fragment_board" >
         <action
             android:id="@+id/action_boardFragment_to_loginFragment2"
@@ -22,18 +22,11 @@
             app:enterAnim="@anim/slide_up"/>
     </fragment>
 
-
-
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.iceapk.presentation.login.LoginFragment"
         android:label="fragment_login">
 
-        <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/home_nav"
-            app:exitAnim="@anim/slide_out"
-            app:enterAnim="@anim/slide_in"/>
     </fragment>
 
 

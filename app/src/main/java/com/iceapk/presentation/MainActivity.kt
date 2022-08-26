@@ -34,12 +34,12 @@ class MainActivity : AppCompatActivity(), UIController {
     @Inject
     lateinit var fragmentFactory: ICEFragmentFactory
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        supportFragmentManager.fragmentFactory = fragmentFactory
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        supportActionBar!!.hide()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        supportFragmentManager.fragmentFactory = ICEFragmentFactory()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        supportActionBar!!.hide()
     }
 
     override fun displayProgressBar(isDisplayed: Boolean, message: String?) {

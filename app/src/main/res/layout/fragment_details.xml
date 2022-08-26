@@ -147,6 +147,67 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"/>
 
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cpp"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:letterSpacing="-0.01"
+        android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/cpp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="0.25"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintEnd_toStartOf="@id/phone"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/email"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_bg"
+        android:paddingTop="5dp"
+        app:ccp_defaultPhoneCode="234"
+        app:ccp_showNameCode="false"
+        app:ccp_textSize="14sp"
+        app:ccpDialog_textColor="@color/white"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_autoFormatNumber="true"
+        />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/edit_bg"
+        android:inputType="number"
+        android:editable="false"
+        android:hint="80 000 0000"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:letterSpacing="-0.02"
+        android:textColorHint="@color/grey"
+        android:paddingStart="15dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintStart_toEndOf="@id/cpp"
+        app:layout_constraintBottom_toTopOf="@id/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="5dp"/>
+
     <include
         android:id="@+id/next"
         layout="@layout/button"

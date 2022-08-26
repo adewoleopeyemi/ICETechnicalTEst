@@ -1,4 +1,5 @@
 package com.iceapk.presentation.login
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iceapk.presentation.data.models.Login
@@ -41,6 +42,7 @@ class LoginViewModel @Inject constructor(private var loginRepo: LoginRepo): View
                 val resp = loginRepo.login( user)
                 _state.value = LoginViewState.Success(resp)
             } catch (e: Exception){
+                Log.d("Debug", "login: "+e.message)
                 _state.value = LoginViewState.Error("Login Failed. Username or password Incorrect")
             }
         }

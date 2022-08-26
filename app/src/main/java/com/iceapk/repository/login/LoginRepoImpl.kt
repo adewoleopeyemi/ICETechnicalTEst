@@ -12,7 +12,8 @@ class LoginRepoImpl
 
 
     override suspend fun login(user: Login): LoginResp {
-        val dto = LoginDTO(username = user.username, password = user.password)
+        // Use dummy accounts provided to us by the api to login
+        val dto = LoginDTO(username = "johnd", password = "m38rmF$")
         return service.loginUser(dto)
     }
 }
