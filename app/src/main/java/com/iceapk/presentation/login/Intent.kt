@@ -1,6 +1,8 @@
 package com.iceapk.presentation.login
 
+import com.iceapk.presentation.data.dto.LoginDTO
+
 
 sealed class Intent{
-    data class Login(var apiKey: String, var user: LoginDTO): Intent()
+    data class Login(var login: LoginDTO): Intent()
 }

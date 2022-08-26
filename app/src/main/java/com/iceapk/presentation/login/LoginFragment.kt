@@ -13,6 +13,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentLoginBinding
+import com.iceapk.presentation.data.dto.LoginDTO
+import com.iceapk.utils.Constants
+import com.iceapk.utils.ICENavigator
+import com.iceapk.utils.UIController
 import com.iceapk.utils.saveInSharedPreference
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -95,10 +99,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         uiController.showToast(R.color.light_purple, R.color.white, R.color.light_red, "Logging in please wait...")
                     }
                     is LoginViewState.Success -> {
-                        it.items.tokens.accessToken.saveInSharedPreference(requireContext(), Constants.ACCESS_TOKEN)
+                        it.resp.token.saveInSharedPreference(requireContext(), Constants.ACCESS_TOKEN)
                         binding!!.phone.text.toString().saveInSharedPreference(requireContext(), Constants.PHONE)
                         val bundle = Bundle()
-                        AvivNavigator.navigate(binding!!.root, R.id.action_loginFragment_to_homeFragment, bundle )
+                        ICENavigator.navigate(binding!!.root, R.id.action_loginFragment_to_homeFragment, bundle )
                     }
 
                     is LoginViewState.Error ->{
@@ -111,12 +115,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun setUpListeners() {
         binding!!.forgotPassword.setOnClickListener {
-            AvivNavigator.navigate(it, R.id.action_loginFragment_to_forgotPasswordFragment)
         }
         binding!!.next.setOnClickListener {
             if (binding!!.password.text.text.toString().isNotEmpty() && binding!!.phone.text.isNotEmpty()){
                 lifecycleScope.launch {
-                    viewModel.intent.send(Intent.Login(resources.getString(R.string.api_key), LoginDTO("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
+                    viewModel.intent.send(Intent.Login(LoginDTO("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
                 }
             }
             else{
