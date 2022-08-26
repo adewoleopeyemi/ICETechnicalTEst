@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.iceapk.presentation.data.models.User
 import com.iceapk.presentation.signup.intent.SignupIntent
 import com.iceapk.presentation.signup.viewstate.SignupViewState
+import com.iceapk.repository.signup.SignupRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
