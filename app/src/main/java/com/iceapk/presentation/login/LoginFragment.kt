@@ -3,10 +3,8 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -119,7 +117,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding!!.next.setOnClickListener {
             if (binding!!.password.text.text.toString().isNotEmpty() && binding!!.phone.text.isNotEmpty()){
                 lifecycleScope.launch {
-                    viewModel.intent.send(Intent.Login(LoginDTO("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
+                    viewModel.intent.send(LoginIntent.Login(LoginDTO("0${binding!!.phone.text.toString()}", binding!!.password.text.text.toString())))
                 }
             }
             else{

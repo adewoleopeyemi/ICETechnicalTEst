@@ -1,8 +1,8 @@
 package com.iceapk.presentation.login
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.iceapk.presentation.data.dto.LoginDTO
+import com.iceapk.presentation.data.models.Login
+import com.iceapk.repository.login.LoginRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(private var loginRepo: LoginRepo): ViewModel() {
-    val intent = Channel<Intent>(Channel.UNLIMITED)
+    val intent = Channel<LoginIntent>(Channel.UNLIMITED)
     private val _state = MutableStateFlow<LoginViewState>(LoginViewState.Idle)
     val viewState: StateFlow<LoginViewState> = _state
 
@@ -25,26 +25,21 @@ class LoginViewModel @Inject constructor(private var loginRepo: LoginRepo): View
 
     private fun handleIntent() {
         viewModelScope.launch {
-            intent.consumeAsFlow().collect {
+            intent.consumeAsFlow().collect { it ->
                 when (it){
-                    is Intent.Login -> login(user = it.login )
+                    is LoginIntent.Login -> login(it.user)
                 }
             }
         }
     }
 
 
-    fun login(user: LoginDTO){
+    fun login(user: Login){
         viewModelScope.launch(Dispatchers.IO) {
             _state.value = LoginViewState.Loading
             try {
                 val resp = loginRepo.login( user)
-                if (resp.response_code == 200){
-                    _state.value = LoginViewState.Success(resp)
-                }
-                else{
-                    _state.value = LoginViewState.Error("Login Failed. Username or password Incorrect")
-                }
+                _state.value = LoginViewState.Success(resp)
             } catch (e: Exception){
                 _state.value = LoginViewState.Error("Login Failed. Username or password Incorrect")
             }
