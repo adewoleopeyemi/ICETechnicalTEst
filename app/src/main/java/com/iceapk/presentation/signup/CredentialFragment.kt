@@ -72,7 +72,8 @@ class CredentialFragment : Fragment(R.layout.fragment_credential) {
                     }
                     is SignupViewState.Success->{
                         try {
-                            ICENavigator.navigate(binding!!.root,  R.id.action_credentialFragment_to_welcomeFragment, null)
+
+                            ICENavigator.navigate(binding!!.root,  R.id.action_credentialFragment_to_welcomeFragment)
                             it.resp.accessToken.saveInSharedPreference(requireContext(), Constants.ACCESS_TOKEN)
                             requireArguments().getString("email")!!.saveInSharedPreference(requireContext(), Constants.EMAIL)
                             uiController.showToast(R.color.light_purple, R.color.white, R.color.white, "Signup sucessful")
