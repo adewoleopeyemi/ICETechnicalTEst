@@ -50,6 +50,12 @@
     <fragment
         android:id="@+id/credentialFragment"
         android:name="com.iceapk.presentation.signup.CredentialFragment"
-        android:label="CredentialFragment" />
+        android:label="CredentialFragment"
+        tools:layout="@layout/fragment_credential">
+        <action
+            android:id="@+id/action_credentialFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
 
 </navigation>

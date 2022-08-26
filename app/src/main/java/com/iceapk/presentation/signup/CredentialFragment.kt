@@ -15,6 +15,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentCredentialBinding
+import com.iceapk.presentation.data.models.Name
+import com.iceapk.presentation.data.models.User
 import com.iceapk.presentation.signup.intent.SignupIntent
 import com.iceapk.presentation.signup.viewstate.SignupViewState
 import com.iceapk.utils.Constants
@@ -73,8 +75,8 @@ class CredentialFragment : Fragment(R.layout.fragment_credential) {
                     is SignupViewState.Success->{
                         try {
 
-                            ICENavigator.navigate(binding!!.root,  R.id.action_credentialFragment_to_welcomeFragment)
-                            it.resp.accessToken.saveInSharedPreference(requireContext(), Constants.ACCESS_TOKEN)
+                            ICENavigator.navigate(binding!!.root,  R.id.action_credentialFragment_to_loginFragment)
+                            it.resp.id.saveInSharedPreference(requireContext(), Constants.USER_ID)
                             requireArguments().getString("email")!!.saveInSharedPreference(requireContext(), Constants.EMAIL)
                             uiController.showToast(R.color.light_purple, R.color.white, R.color.white, "Signup sucessful")
                         }
@@ -95,13 +97,12 @@ class CredentialFragment : Fragment(R.layout.fragment_credential) {
             if (conditons1 && conditons2 && conditons3){
                 lifecycleScope.launch {
                     viewModel.signUpIntent.send(
-                        SignupIntent.signUp(
-                        apiKey = getString(R.string.api_key), User(requireArguments().getString("firstName")!!,
-                            requireArguments().getString("lastName")!!,
-                            requireArguments().getString("email")!!,
-                            requireArguments().getString("phoneNumber")!!.filterNot { it.isWhitespace() },
-                            password = binding!!.password.text.text.toString())
-                    ))
+                        SignupIntent.signUp(User(email = requireArguments().getString("email")!!,
+                            username =   requireArguments().getString("phoneNumber")!!.filterNot { it.isWhitespace() },
+                            password = binding!!.password.text.text.toString(),
+                            name = Name(firstname = requireArguments().getString("firstName")!!, lastname = requireArguments().getString("lastName")!!),
+                            phone= requireArguments().getString("phoneNumber")!!.filterNot { it.isWhitespace() },
+                    )))
                 }
             }
         }
@@ -243,12 +244,6 @@ class CredentialFragment : Fragment(R.layout.fragment_credential) {
     override fun onResume() {
         uiController.statusBarColor(R.color.white, false)
         super.onResume()
-    }
-
-    private fun navigateToDetailsFragment(email: String, password: String){
-        val bundle = bundleOf(EMAIL_KEY to email, PASS_KEY to password)
-        //add bundle to navigator
-        //navController.navigate()
     }
 
     override fun onAttach(context: Context) {
