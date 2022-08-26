@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/deactivated_button.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/default_shape.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/edit_bg.xml" value="0.3435" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.3435" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/ic_forward_black.xml" value="0.439" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/ic_home.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/ic_me.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/light_purple_button.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/drawable-v24/purple_variant_button.xml" value="0.4405" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/activity_main.xml" value="0.55625" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/button.xml" value="0.55625" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/fragment_board_four.xml" value="0.33" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/fragment_board_one.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/fragment_credential.xml" value="0.5" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/fragment_details.xml" value="0.379981884057971" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/fragment_login.xml" value="0.5" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/password_edittext.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/layout/textview_with_icon.xml" value="0.55625" />
+        <entry key="..\:/Users/TempUser/AndroidStudioProjects/ICEApk/app/src/main/res/menu/aviv_menu.xml" value="0.55625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

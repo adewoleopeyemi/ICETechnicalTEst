@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/newHomeFragment">
+    <fragment
+        android:id="@+id/newHomeFragment"
+        android:name="com.avivimp.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_newHomeFragment_to_selectAgentFragment"
+            app:destination="@id/selectAgentFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/fade_in"/>
+
+        <action
+            android:id="@+id/action_newHomeFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_up"
+            />
+
+        <action
+            android:id="@+id/action_homeFragment_to_paymentOptionsFragment"
+            app:destination="@id/paymentFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/fade_in"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_kycFragment"
+            app:destination="@id/kyc_nav"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/fade_in"/>
+    </fragment>
+
+    <!--<fragment
+        android:id="@+id/selectAgentFragment"
+        android:name="com.aviv.payment.presentation.selectagent.SelectAgentsFragment"
+        android:label="fragment_agent"
+        tools:layout="@layout/fragment_select_agent" >
+        <action
+            android:id="@+id/action_selectAgentFragment_to_newHomeFragment"
+            app:destination="@id/newHomeFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/fade_in"/>
+        <action
+            android:id="@+id/action_selectAgentFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_up"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.aviv.payment.presentation.addmoney.AddMoneyFragment"
+        android:label="fragment_add_money">
+
+        <action
+            android:id="@+id/action_walletFragment_to_newHomeFragment"
+            app:destination="@id/newHomeFragment" />
+    </fragment>!-->
+
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.avivimp.presentation.home.TransactionHistoryFragment"
+        android:label="fragment_payment">
+        <action
+            android:id="@+id/successFragment_to_newHomeFragment"
+            app:destination="@id/newHomeFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.avivimp.presentation.home.PaymentOptionsFragment"
+        android:label="fragment_payment">
+        <action
+            android:id="@+id/action_paymentOptionsFragment_to_walletFragment"
+            app:destination="@id/newHomeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectAgentFragment"
+        android:name="com.avivimp.presentation.selectagent.SelectAgentFragment"
+        android:label="fragment_agent"
+        tools:layout="@layout/fragment_select_agent" >
+        <action
+            android:id="@+id/action_selectAgentFragment_to_newHomeFragment"
+            app:destination="@id/newHomeFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/fade_in"/>
+        <action
+            android:id="@+id/action_selectAgentFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_up"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.avivimp.presentation.selectagent.SuccessFragment"
+        android:label="fragment_payment">
+        <action
+            android:id="@+id/successFragment_to_newHomeFragment"
+            app:destination="@id/newHomeFragment" />
+    </fragment>
+
+
+</navigation>

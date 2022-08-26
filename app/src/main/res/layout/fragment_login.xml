@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:forceDarkAllowed="false"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="28dp"
+        android:layout_height="24dp"
+        android:tint="#000000"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text1"
+        android:layout_margin="20dp"
+        app:layout_constraintHorizontal_bias="0"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:text="Welcome Back!"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toStartOf="@id/back_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text2"
+        app:layout_constraintHorizontal_bias="0"
+        android:letterSpacing="-0.04"
+        />
+
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/plus_jakarta_sans_regular"
+        android:text="Get a premium shopping experience with ICE."
+        android:textColor="#170E21"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintBottom_toTopOf="@id/text3"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/back_btn"
+        app:layout_constraintEnd_toEndOf="@id/phone"
+        android:letterSpacing="-0.02"
+        />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cpp"
+        android:layout_marginTop="50dp"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:letterSpacing="-0.01"
+        android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/cpp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="0.25"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintEnd_toStartOf="@id/phone"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/back_btn"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edit_bg"
+        android:paddingTop="5dp"
+        app:ccp_defaultPhoneCode="234"
+        app:ccp_showNameCode="false"
+        app:ccp_textSize="14sp"
+        app:ccpDialog_textColor="@color/white"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_autoFormatNumber="true"
+        />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/edit_bg"
+        android:inputType="number"
+        android:editable="false"
+        android:hint="80 000 0000"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:letterSpacing="-0.02"
+        android:textColorHint="@color/grey"
+        android:paddingStart="15dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintStart_toEndOf="@id/cpp"
+        app:layout_constraintBottom_toTopOf="@id/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginTop="5dp"/>
+
+
+    <include
+        android:id="@+id/password"
+        layout="@layout/password_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone" />
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:text="Forgot Password?"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:letterSpacing="-0.02"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/next"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/deactivated_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/phone"
+        app:layout_constraintStart_toStartOf="@id/cpp"
+        app:layout_constraintTop_toBottomOf="@id/cpp"
+        app:layout_constraintVertical_bias="0.85">
+
+        <TextView
+            android:id="@+id/continue_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:textColor="#CFCBD3"
+            android:textSize="16sp"
+            android:letterSpacing="-0.02"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/plus_jakarta_sans_medium"/>
+
+        <ImageView
+            android:id="@+id/imageViewCard"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@id/continue_txt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/continue_txt"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintVertical_bias="0.55" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
