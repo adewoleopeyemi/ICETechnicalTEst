@@ -12,5 +12,11 @@ data class Product(
     var price: String,
     var category: String,
     var description: String,
-    var image: String
+    var image: String,
+    var rating: Rating
+)
+
+data class Rating(
+    var rate: Float,
+    var counts: Int
 )

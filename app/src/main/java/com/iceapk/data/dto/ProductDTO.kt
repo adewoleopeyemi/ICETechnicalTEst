@@ -8,5 +8,11 @@ data class ProductDTO(
     @Json(name="price")  var price: String,
     @Json(name="category") var category: String,
     @Json(name="description")  var description: String,
-    @Json(name="image") var image: String
+    @Json(name="image") var image: String,
+    @Json(name="rating") var rating: RatingDTO
+)
+
+data class RatingDTO(
+    @Json(name="rate")  var rate: Float,
+    @Json(name="count")  var counts: Int
 )

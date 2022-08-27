@@ -2,6 +2,7 @@ package com.iceapk.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.iceapk.data.dao.ProductsDao
 import com.iceapk.presentation.home.intent.HomeIntent
 import com.iceapk.presentation.home.viewstates.HomeViewState
 import com.iceapk.repository.home.HomeRepo
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel
-    @Inject constructor(private val repo: HomeRepo): ViewModel() {
+    @Inject constructor(private val repo: HomeRepo, private val dao: ProductsDao): ViewModel() {
     val intent = Channel<HomeIntent>(Channel.UNLIMITED)
     private val _state = MutableStateFlow<HomeViewState>(HomeViewState.Idle)
     val viewState: StateFlow<HomeViewState> = _state
@@ -35,8 +36,8 @@ class HomeViewModel
     private suspend fun getProducts(){
         _state.value = HomeViewState.Loading
         try{
-            val products = repo.getAllProducts()
-            _state.value = HomeViewState.Success(products)
+             repo.getAllProducts()
+            _state.value = HomeViewState.Success(dao.readAllProducts())
         }
         catch (e: Exception){
             _state.value = HomeViewState.Error("Error loading products please try again")

@@ -16,7 +16,7 @@
         android:paddingBottom="8dp">
 
         <ImageView
-            android:id="@+id/CollectionImageView"
+            android:id="@+id/product_image_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
@@ -33,11 +33,12 @@
             android:layout_marginLeft="8dp"
             android:src="@drawable/ic_baseline_star_24"
             android:tint="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@+id/collectionNameTextView"
-            app:layout_constraintStart_toEndOf="@+id/collectionNameTextView"
-            app:layout_constraintTop_toTopOf="@+id/collectionNameTextView" />
+            app:layout_constraintBottom_toBottomOf="@+id/product_category"
+            app:layout_constraintStart_toEndOf="@+id/product_category"
+            app:layout_constraintTop_toTopOf="@+id/product_category" />
 
         <TextView
+            android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -49,7 +50,7 @@
 
 
         <TextView
-            android:id="@+id/collectionNameTextView"
+            android:id="@+id/product_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -61,11 +62,11 @@
             android:letterSpacing="-0.02"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/CollectionImageView"
+            app:layout_constraintTop_toBottomOf="@id/product_image_view"
             tools:text="@tools:sample/lorem" />
 
         <TextView
-            android:id="@+id/RecipeCountTextView"
+            android:id="@+id/product_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -74,11 +75,11 @@
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/plus_jakarta_sans_bold"
             android:letterSpacing="-0.02"
-            app:layout_constraintTop_toBottomOf="@+id/collectionNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/product_name"
             tools:text="x Recipe(s) Available." />
 
         <TextView
-            android:id="@+id/descriptionTextView"
+            android:id="@+id/description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -89,19 +90,19 @@
             android:letterSpacing="-0.04"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RecipeCountTextView"
+            app:layout_constraintTop_toBottomOf="@+id/product_category"
             tools:text="@tools:sample/lorem/random" />
 
         <ImageView
-            android:id="@+id/favouriteImageView"
+            android:id="@+id/carts_icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.906"
-            app:layout_constraintStart_toEndOf="@+id/collectionNameTextView"
-            app:layout_constraintTop_toBottomOf="@id/CollectionImageView"
+            app:layout_constraintStart_toEndOf="@+id/product_name"
+            app:layout_constraintTop_toBottomOf="@id/product_image_view"
             app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iceapk.databinding.LayoutItemProductBinding
 import com.iceapk.data.dao.entities.Product
+import com.iceapk.utils.loadCircularImage
 
 
 class ProductsViewHolder(private val context: Context, private val binding: LayoutItemProductBinding, private val listener: EventsListener) :
     RecyclerView.ViewHolder(binding.root) {
 
      fun bind(item: Product) {
-         binding.textView15.text = "₦${item.id}"
-         binding.description.text = "${item.quantity}"
-         binding.amount.text = "${item.transaction_date}"
-         if (item.transaction_amount.toString().startsWith("-")){
-             binding.amount.setTextColor(R.color.red)
-         }
+         binding.productImageView.loadCircularImage(item.image)
+         binding.productName .text= item.title
+         binding.productCategory.text = item.category
+         binding.rating.text = "${item.rating.rate}"
+         binding.description.text = item.description
 
          binding.root.setOnClickListener {
-             listener.onClicked(item)
+             listener.onProductClicked(item)
          }
     }
 
@@ -28,7 +28,7 @@ class ProductsViewHolder(private val context: Context, private val binding: Layo
     companion object {
         fun create(parent: ViewGroup, listener: EventsListener): ProductsViewHolder {
             val ItemBinding =
-                LayoutItemTransactionBinding.inflate(
+                LayoutItemProductBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
@@ -38,6 +38,7 @@ class ProductsViewHolder(private val context: Context, private val binding: Layo
     }
 
     interface EventsListener{
-        fun onClicked(agent: Transaction)
+        fun onProductClicked(product: Product)
+        fun addToCartClicked(product: Product)
     }
 }
