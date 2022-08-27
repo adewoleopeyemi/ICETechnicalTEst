@@ -65,9 +65,8 @@
         app:layout_constraintTop_toTopOf="@+id/search_spinner"
         android:layout_marginLeft="15dp"/>
 
-    <Swi
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/transactions_rv"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -75,7 +74,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/search_spinner"
-        app:layout_constraintTop_toBottomOf="@+id/search_spinner"
-        tools:listitem="@layout/layout_item_product" />
+        app:layout_constraintTop_toBottomOf="@+id/search_spinner">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/layout_item_product" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
