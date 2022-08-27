@@ -15,4 +15,7 @@ interface ProductsDao {
 
     @Update
     suspend fun updateCollection(product: Product)
+
+    @Query("select * from product_table where category like :query")
+    fun getIProductByCategory(query: String): List<Product>
 }

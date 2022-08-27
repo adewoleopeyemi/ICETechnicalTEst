@@ -17,4 +17,7 @@ class HomeRepoImpl
             dao.addProduct(product)
         }
     }
+    override suspend fun searchByCategory(category: String) : List<Product>{
+       return  dao.getIProductByCategory(category)
+    }
 }

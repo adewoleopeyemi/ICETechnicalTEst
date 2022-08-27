@@ -28,9 +28,14 @@ class HomeViewModel
             intent.consumeAsFlow().collect { it ->
                 when (it){
                     is HomeIntent.getData -> getProducts()
+                    is HomeIntent.getProductsByCategory -> getProductByCategory(it.category.toLowerCase())
                 }
             }
         }
+    }
+
+    private suspend fun getProductByCategory(category: String){
+        _state.value = HomeViewState.Success(repo.searchByCategory(category))
     }
 
     private suspend fun getProducts(){
