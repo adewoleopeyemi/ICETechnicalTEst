@@ -48,7 +48,11 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
 
     private fun setUpListeners() {
         binding!!.searchCloseBtn.setOnClickListener {
-            //Search category
+            if (binding!!.searchSpinner.selectedItem.toString() != "Select a category"){
+                lifecycleScope.launch {
+                    viewModel.intent.send(HomeIntent.getProductsByCategory(binding!!.searchSpinner.selectedItem.toString()))
+                }
+            }
         }
     }
 
