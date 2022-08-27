@@ -6,8 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.cookpad.hiring.android.data.dao.converters.Converters
+import com.iceapk.data.dao.entities.Product
 
-@Database(entities = [Collection::class], version = 3, exportSchema = false)
+@Database(entities = [Product::class], version =1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class Database: RoomDatabase() {
 

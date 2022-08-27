@@ -18,7 +18,9 @@ class ProductsViewHolder(private val context: Context, private val binding: Layo
          binding.productCategory.text = item.category
          binding.rating.text = "${item.rating.rate}"
          binding.description.text = item.description
-
+         binding.cartsIcon.setOnClickListener {
+             listener.addToCartClicked(item)
+         }
          binding.root.setOnClickListener {
              listener.onProductClicked(item)
          }
