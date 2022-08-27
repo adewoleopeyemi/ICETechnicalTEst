@@ -92,7 +92,6 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
     }
 
     private fun setUpView() {
-        binding!!.toolbar.backBtn.visibility = GONE
         val arrayAdapter: ArrayAdapter<String?> = object :
             ArrayAdapter<String?>(activity!!, R.layout.spinner_item) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -153,15 +152,14 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
     }
 
     override fun onProductClicked(product: Product) {
-        lifecycleScope.launch {
-            viewModel.intent.send(HomeIntent.addToCart(Cart(pid=product.pid, title = product.title,
-                price = product.price, category = product.category, description = product.description,
-            image = product.image, rating = product.rating)))
-        }
-        uiController.showToast(R.color.light_purple, R.color.white, R.color.white, "Product added to cart")
     }
 
     override fun addToCartClicked(product: Product) {
-
+        lifecycleScope.launch {
+            viewModel.intent.send(HomeIntent.addToCart(Cart(pid=product.pid, title = product.title,
+                price = product.price, category = product.category, description = product.description,
+                image = product.image, rating = product.rating)))
+        }
+        uiController.showToast(R.color.light_purple, R.color.white, R.color.white, "Product added to cart")
     }
 }
