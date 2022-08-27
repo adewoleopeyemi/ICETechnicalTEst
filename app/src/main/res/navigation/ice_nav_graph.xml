@@ -27,7 +27,12 @@
         android:name="com.iceapk.presentation.login.LoginFragment"
         android:label="fragment_login">
 
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
+
+
 
 
     <fragment
@@ -50,5 +55,10 @@
             app:destination="@id/loginFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.iceapk.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 
 </navigation>

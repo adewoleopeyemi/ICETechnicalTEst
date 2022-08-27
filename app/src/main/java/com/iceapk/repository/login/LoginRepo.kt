@@ -1,8 +1,7 @@
 package com.iceapk.repository.login
 
-import com.iceapk.presentation.data.dto.LoginResp
-import com.iceapk.presentation.data.models.Login
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.dto.LoginResp
+import com.iceapk.data.models.Login
 
 interface LoginRepo {
     suspend fun login(user: Login): LoginResp

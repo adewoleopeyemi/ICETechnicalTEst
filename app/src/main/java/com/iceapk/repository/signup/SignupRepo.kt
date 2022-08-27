@@ -1,7 +1,7 @@
 package com.iceapk.repository.signup
 
-import com.iceapk.presentation.data.dto.SignupResp
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.dto.SignupResp
+import com.iceapk.data.models.User
 
 
 interface SignupRepo {

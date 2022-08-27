@@ -1,6 +1,6 @@
 package com.iceapk.repository.home
 
-import com.iceapk.presentation.data.models.Product
+import com.iceapk.data.dao.entities.Product
 
 interface HomeRepo {
     suspend fun getAllProducts(): List<Product>

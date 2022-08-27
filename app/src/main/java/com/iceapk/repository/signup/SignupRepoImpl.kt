@@ -1,14 +1,10 @@
 package com.iceapk.repository.signup
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.google.gson.Gson
 import com.iceapk.network.interfaces.ICEService
-import com.iceapk.presentation.data.dto.NameDTO
-import com.iceapk.presentation.data.dto.SignupResp
-import com.iceapk.presentation.data.dto.UserDTO
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.dto.NameDTO
+import com.iceapk.data.dto.SignupResp
+import com.iceapk.data.dto.UserDTO
+import com.iceapk.data.models.User
 import javax.inject.Inject
 import javax.inject.Named
 

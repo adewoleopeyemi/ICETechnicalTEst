@@ -11,8 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentLoginBinding
-import com.iceapk.presentation.data.dto.LoginDTO
-import com.iceapk.presentation.data.models.Login
+import com.iceapk.data.models.Login
+import com.iceapk.presentation.login.intent.LoginIntent
+import com.iceapk.presentation.login.viewstate.LoginViewState
 import com.iceapk.utils.Constants
 import com.iceapk.utils.ICENavigator
 import com.iceapk.utils.UIController

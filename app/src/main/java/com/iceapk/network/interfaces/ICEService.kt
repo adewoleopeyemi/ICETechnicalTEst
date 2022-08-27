@@ -1,9 +1,8 @@
 package com.iceapk.network.interfaces
 
-import com.iceapk.presentation.data.dto.*
+import com.iceapk.data.dto.*
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ICEService {

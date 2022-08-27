@@ -1,4 +1,4 @@
-package com.iceapk.presentation.data.models
+package com.iceapk.data.models
 
 data class Login(
     var username: String,

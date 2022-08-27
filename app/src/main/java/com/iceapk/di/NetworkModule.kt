@@ -1,4 +1,4 @@
-package com.iceapk.presentation.di
+package com.iceapk.di
 
 import android.app.Application
 import com.android.volley.RequestQueue
@@ -9,7 +9,6 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

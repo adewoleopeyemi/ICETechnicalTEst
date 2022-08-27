@@ -1,6 +1,6 @@
-package com.iceapk.presentation.login
+package com.iceapk.presentation.login.viewstate
 
-import com.iceapk.presentation.data.dto.LoginResp
+import com.iceapk.data.dto.LoginResp
 
 
 sealed class LoginViewState {

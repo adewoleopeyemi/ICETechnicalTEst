@@ -1,4 +1,5 @@
 package com.iceapk.presentation.home.intent
 
-class HomeIntent {
+sealed class HomeIntent {
+    object getData: HomeIntent()
 }

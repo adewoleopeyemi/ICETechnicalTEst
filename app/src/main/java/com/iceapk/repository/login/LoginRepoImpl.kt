@@ -1,9 +1,9 @@
 package com.iceapk.repository.login
 
 import com.iceapk.network.interfaces.ICEService
-import com.iceapk.presentation.data.dto.LoginDTO
-import com.iceapk.presentation.data.dto.LoginResp
-import com.iceapk.presentation.data.models.Login
+import com.iceapk.data.dto.LoginDTO
+import com.iceapk.data.dto.LoginResp
+import com.iceapk.data.models.Login
 import javax.inject.Inject
 import javax.inject.Named
 

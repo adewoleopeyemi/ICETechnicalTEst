@@ -1,6 +1,6 @@
 package com.iceapk.presentation.signup.viewstate
 
-import com.iceapk.presentation.data.dto.SignupResp
+import com.iceapk.data.dto.SignupResp
 
 
 sealed class SignupViewState {

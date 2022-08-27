@@ -1,10 +1,8 @@
 package com.iceapk.presentation.signup
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.models.User
 import com.iceapk.presentation.signup.intent.SignupIntent
 import com.iceapk.presentation.signup.viewstate.SignupViewState
 import com.iceapk.repository.signup.SignupRepo

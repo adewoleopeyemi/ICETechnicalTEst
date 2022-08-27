@@ -1,4 +1,4 @@
-package com.iceapk.presentation.data.dto
+package com.iceapk.data.dto
 
 import com.squareup.moshi.Json
 

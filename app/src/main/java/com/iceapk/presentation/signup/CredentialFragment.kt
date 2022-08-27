@@ -8,15 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentCredentialBinding
-import com.iceapk.presentation.data.models.Name
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.models.Name
+import com.iceapk.data.models.User
 import com.iceapk.presentation.signup.intent.SignupIntent
 import com.iceapk.presentation.signup.viewstate.SignupViewState
 import com.iceapk.utils.Constants
@@ -24,9 +23,7 @@ import com.iceapk.utils.ICENavigator
 import com.iceapk.utils.UIController
 import com.iceapk.utils.saveInSharedPreference
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CredentialFragment : Fragment(R.layout.fragment_credential) {

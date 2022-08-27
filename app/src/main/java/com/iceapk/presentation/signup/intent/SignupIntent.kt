@@ -1,6 +1,6 @@
 package com.iceapk.presentation.signup.intent
 
-import com.iceapk.presentation.data.models.User
+import com.iceapk.data.models.User
 
 
 sealed class SignupIntent{
