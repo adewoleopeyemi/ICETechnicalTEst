@@ -12,6 +12,6 @@ interface ICEService {
     @POST("auth/login")
     suspend fun loginUser(@Body user: LoginDTO): LoginResp
 
-    @GET("carts/5")
-    suspend fun getCart(): CartDTO
+    @GET("products")
+    suspend fun getAllProducts(): List<ProductDTO>
 }

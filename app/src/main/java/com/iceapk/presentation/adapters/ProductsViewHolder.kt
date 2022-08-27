@@ -4,6 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.iceapk.databinding.LayoutItemProductBinding
 import com.iceapk.data.dao.entities.Product
 import com.iceapk.utils.loadCircularImage
@@ -13,10 +16,15 @@ class ProductsViewHolder(private val context: Context, private val binding: Layo
     RecyclerView.ViewHolder(binding.root) {
 
      fun bind(item: Product) {
-         binding.productImageView.loadCircularImage(item.image)
+         Glide
+             .with(context)
+             .load(item.image)
+             .into( binding.productImageView)
+
+
          binding.productName .text= item.title
          binding.productCategory.text = item.category
-         binding.rating.text = "${item.rating.rate}"
+         binding.rating.text = "${item.rating}"
          binding.description.text = item.description
          binding.cartsIcon.setOnClickListener {
              listener.addToCartClicked(item)

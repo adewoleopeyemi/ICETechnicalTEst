@@ -54,6 +54,11 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
                 }
             }
         }
+        binding!!.swipeToRefresh.setOnRefreshListener {
+            lifecycleScope.launchWhenCreated {
+                viewModel.intent.send(HomeIntent.getData)
+            }
+        }
     }
 
     private fun setUpObservers() {
@@ -65,7 +70,9 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
                         binding!!.progressBar.visibility = VISIBLE
                     }
                     is HomeViewState.Success ->{
+                        binding!!.progressBar.visibility = GONE
                         productsAdapter.submitList(it.product)
+                        binding!!.swipeToRefresh.isRefreshing = false
                     }
                     is HomeViewState.Error -> {
                         uiController.showToast(R.color.red, R.color.white, R.color.white, "Oops couldn't fetch product. Please try again")
@@ -84,13 +91,14 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
     }
 
     private fun setUpView() {
+        binding!!.toolbar.backBtn.visibility = GONE
         val arrayAdapter: ArrayAdapter<String?> = object :
-            ArrayAdapter<String?>(activity!!, android.R.layout.simple_spinner_dropdown_item) {
+            ArrayAdapter<String?>(activity!!, R.layout.spinner_item) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val v = super.getView(position, convertView, parent)
                 if (position == count) {
-                    (v.findViewById<View>(android.R.id.text1) as TextView).text = ""
-                    (v.findViewById<View>(android.R.id.text1) as TextView).hint = getItem(
+                    (v.findViewById<View>(R.id.text1) as TextView).text = ""
+                    (v.findViewById<View>(R.id.text1) as TextView).hint = getItem(
                         count
                     ) //"Hint to be displayed"
                 }
@@ -124,6 +132,7 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
 
     override fun onResume() {
         uiController.statusBarColor(R.color.white, false)
+        uiController.hideBottomNav(false)
         super.onResume()
     }
 

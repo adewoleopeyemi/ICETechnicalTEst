@@ -9,9 +9,9 @@
         android:iconTint="@color/black"/>
 
     <item
-        android:id="@+id/search_naev"
-        android:title="Search"
-        android:icon="@drawable/ic_search"
+        android:id="@+id/cartsFragment"
+        android:title="Carts"
+        android:icon="@drawable/ic_baseline_add_shopping_cart_24"
         android:iconTint="@color/black"/>
 
     <item

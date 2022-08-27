@@ -1,9 +1,8 @@
-package com.cookpad.hiring.android.data.dao.converters
+package com.iceapk.data.dao.converters
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.room.TypeConverter
-import com.cookpad.hiring.android.data.dao.entities.Collection
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.ByteArrayOutputStream

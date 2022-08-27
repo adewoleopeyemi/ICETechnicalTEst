@@ -9,14 +9,9 @@ data class Product(
     var id: Int = 0,
     var pid: Int,
     var title: String,
-    var price: String,
+    var price: Float,
     var category: String,
     var description: String,
     var image: String,
-    var rating: Rating
-)
-
-data class Rating(
-    var rate: Float,
-    var counts: Int
+    var rating: Float
 )

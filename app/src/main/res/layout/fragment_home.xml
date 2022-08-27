@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.iceapk.presentation.home.HomeFragment">
+    tools:context="com.iceapk.presentation.home.HomeFragment"
+    android:background="@color/white"
+    android:forceDarkAllowed="false">
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
@@ -24,7 +26,7 @@
 
     <Spinner
         android:id="@+id/search_spinner"
-        android:layout_width="252dp"
+        android:layout_width="200dp"
         android:layout_height="44dp"
         android:background="@drawable/edit_bg_grey"
         android:layout_marginTop="20dp"
@@ -32,9 +34,7 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginEnd="20dp"
-        android:hint="Search Product Category"
         android:paddingStart="40dp"
-        android:textColorHint="#CFCBD3"
         android:letterSpacing="-0.02"
         android:fontFamily="@font/plus_jakarta_sans_medium"
         android:paddingBottom="3dp"
@@ -50,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="20dp"
         android:text="Apply"
+        android:textColor="@color/black"
         android:fontFamily="@font/plus_jakarta_sans_bold"
         android:textAllCaps="false"
         android:letterSpacing="-0.04">

@@ -1,5 +1,6 @@
 package com.iceapk.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iceapk.data.dao.ProductsDao
@@ -45,6 +46,7 @@ class HomeViewModel
             _state.value = HomeViewState.Success(dao.readAllProducts())
         }
         catch (e: Exception){
+            Log.d("Debug", "getProducts: "+e.message)
             _state.value = HomeViewState.Error("Error loading products please try again")
         }
     }
