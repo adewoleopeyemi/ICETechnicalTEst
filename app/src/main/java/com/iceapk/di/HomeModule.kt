@@ -1,5 +1,6 @@
 package com.iceapk.di
 
+import com.iceapk.data.dao.CartsDao
 import com.iceapk.data.dao.ProductsDao
 import com.iceapk.network.interfaces.ICEService
 import com.iceapk.repository.home.HomeRepo
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 object HomeModule {
     @Singleton
     @Provides
-    fun providesHomeRepo( @Named("ICE")service: ICEService, dao: ProductsDao): HomeRepo {
-        return HomeRepoImpl(service, dao)
+    fun providesHomeRepo( @Named("ICE")service: ICEService, dao: ProductsDao, cartsDao: CartsDao): HomeRepo {
+        return HomeRepoImpl(service, dao, cartsDao)
     }
 }

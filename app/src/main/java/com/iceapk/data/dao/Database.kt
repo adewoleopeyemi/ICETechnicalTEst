@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.iceapk.data.dao.converters.Converters
+import com.iceapk.data.dao.entities.Cart
 import com.iceapk.data.dao.entities.Product
 
-@Database(entities = [Product::class], version =2, exportSchema = false)
+@Database(entities = [Product::class, Cart::class], version =3, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class Database: RoomDatabase() {
 
-    abstract fun collectionsDao(): ProductsDao
+    abstract fun productsDao(): ProductsDao
+    abstract  fun cartsDao(): CartsDao
 
     companion object{
         @Volatile

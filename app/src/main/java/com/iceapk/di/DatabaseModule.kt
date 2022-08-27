@@ -2,6 +2,7 @@ package com.iceapk.di
 
 import android.content.Context
 import androidx.room.RoomDatabase
+import com.iceapk.data.dao.CartsDao
 import com.iceapk.data.dao.Database
 import com.iceapk.data.dao.ProductsDao
 import dagger.Module
@@ -17,11 +18,19 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun providesCollectionsDao(
+    fun providesProductsDao(
         database: Database
     ): ProductsDao{
-        return database.collectionsDao()
+        return database.productsDao()
     }
+
+    @Provides
+    fun providesCartsDao(
+        database: Database
+    ): CartsDao{
+        return database.cartsDao()
+    }
+
 
 
     @Provides

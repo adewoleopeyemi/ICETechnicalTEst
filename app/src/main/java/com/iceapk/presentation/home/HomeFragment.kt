@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iceapk.R
 import com.example.iceapk.databinding.FragmentHomeBinding
+import com.iceapk.data.dao.entities.Cart
 import com.iceapk.data.dao.entities.Product
 import com.iceapk.presentation.adapters.ProductsAdapter
 import com.iceapk.presentation.adapters.ProductsViewHolder
@@ -152,7 +153,12 @@ class HomeFragment : Fragment(), ProductsViewHolder.EventsListener{
     }
 
     override fun onProductClicked(product: Product) {
-
+        lifecycleScope.launch {
+            viewModel.intent.send(HomeIntent.addToCart(Cart(pid=product.pid, title = product.title,
+                price = product.price, category = product.category, description = product.description,
+            image = product.image, rating = product.rating)))
+        }
+        uiController.showToast(R.color.light_purple, R.color.white, R.color.white, "Product added to cart")
     }
 
     override fun addToCartClicked(product: Product) {

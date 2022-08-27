@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iceapk.data.dao.ProductsDao
+import com.iceapk.data.dao.entities.Cart
 import com.iceapk.presentation.home.intent.HomeIntent
 import com.iceapk.presentation.home.viewstates.HomeViewState
 import com.iceapk.repository.home.HomeRepo
@@ -30,6 +31,7 @@ class HomeViewModel
                 when (it){
                     is HomeIntent.getData -> getProducts()
                     is HomeIntent.getProductsByCategory -> getProductByCategory(it.category.toLowerCase())
+                    is HomeIntent.addToCart -> addToCart(it.cart)
                 }
             }
         }
@@ -37,6 +39,10 @@ class HomeViewModel
 
     private suspend fun getProductByCategory(category: String){
         _state.value = HomeViewState.Success(repo.searchByCategory(category))
+    }
+
+    private suspend fun addToCart(cart: Cart){
+        repo.addToCart(cart)
     }
 
     private suspend fun getProducts(){
