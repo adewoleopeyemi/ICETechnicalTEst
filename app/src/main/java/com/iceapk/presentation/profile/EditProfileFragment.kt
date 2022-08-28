@@ -74,6 +74,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
             binding!!.btnSave.root.background= resources.getDrawable(R.drawable.light_purple_button)
 
+
         }
 
         override fun onAttach(context: Context) {
