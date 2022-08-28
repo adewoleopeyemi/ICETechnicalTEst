@@ -15,7 +15,7 @@
         android:iconTint="@color/black"/>
 
     <item
-        android:id="@+id/profile_nav"
+        android:id="@+id/editProfileFragment"
         android:title="Profile"
         android:icon="@drawable/ic_me"
         android:iconTint="@color/black"/>

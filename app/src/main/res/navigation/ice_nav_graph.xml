@@ -67,6 +67,10 @@
         android:name="com.iceapk.presentation.cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.iceapk.presentation.profile.EditProfileFragment"
+        android:label="EditProfileFragment" />
 
 
 </navigation>

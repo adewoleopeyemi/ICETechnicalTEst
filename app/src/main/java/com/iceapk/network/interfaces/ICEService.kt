@@ -3,6 +3,7 @@ package com.iceapk.network.interfaces
 import com.iceapk.data.dto.*
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 
 interface ICEService {
@@ -14,4 +15,7 @@ interface ICEService {
 
     @GET("products")
     suspend fun getAllProducts(): List<ProductDTO>
+
+    @PATCH("users/7")
+    suspend fun updateUser(@Body user: UserDTO): SignupResp
 }
