@@ -1,3 +1,7 @@
 package com.iceapk.presentation.profile.intent
 
-sealed class ProfileIntent
+import com.iceapk.data.models.User
+
+sealed class ProfileIntent{
+    data class updateUserProfile( var user: User): ProfileIntent()
+}

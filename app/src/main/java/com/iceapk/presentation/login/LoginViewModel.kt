@@ -27,7 +27,7 @@ class LoginViewModel @Inject constructor(private var loginRepo: LoginRepo): View
 
 
     private fun handleIntent() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             intent.consumeAsFlow().collect { it ->
                 when (it){
                     is LoginIntent.Login -> login(it.user)

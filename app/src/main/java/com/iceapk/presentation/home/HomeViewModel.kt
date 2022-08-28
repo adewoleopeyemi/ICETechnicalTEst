@@ -9,6 +9,7 @@ import com.iceapk.presentation.home.intent.HomeIntent
 import com.iceapk.presentation.home.viewstates.HomeViewState
 import com.iceapk.repository.home.HomeRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,7 +27,7 @@ class HomeViewModel
         handleIntent()
     }
     private fun handleIntent() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             intent.consumeAsFlow().collect { it ->
                 when (it){
                     is HomeIntent.getData -> getProducts()

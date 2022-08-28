@@ -8,6 +8,7 @@ import com.iceapk.presentation.home.intent.HomeIntent
 import com.iceapk.presentation.home.viewstates.HomeViewState
 import com.iceapk.repository.cart.CartRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,7 +25,7 @@ class CartViewModel  @Inject constructor(private val repo: CartRepo): ViewModel(
         handleIntent()
     }
     private fun handleIntent() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             intent.consumeAsFlow().collect { it ->
                 when (it){
                     is CartIntent.getProductsFromCart -> getProducts()
